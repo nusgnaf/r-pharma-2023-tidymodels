@@ -42,7 +42,7 @@ I hope you end up with more questions than answers after this workshop!
 :::
 
 
-## Workshop resources
+## 研讨会学习资源
 
 ::: columns
 ::: {.column}
@@ -60,7 +60,7 @@ I hope you end up with more questions than answers after this workshop!
 
 :::
 
-## Data
+## 数据集
 
 We'll use two data sets in this workshop:
 
@@ -84,9 +84,9 @@ heart_failure <- readr::read_csv("data/heart_failure.csv")
 exercises <- readr::read_csv("data/exercises.csv")
 ```
 
-## Quiz!
+## 小测验!
 
-Have you done machine learning in R before?
+之前你是否使用R语言做过机器学习？?
 
 * No
 
@@ -98,7 +98,7 @@ Have you done machine learning in R before?
 
 # Getting started with \{tidymodels\} {background-color="#D9DBDB"}
 
-## What is {tidymodels}?
+## {tidymodels} 是什么?
 
 ::: columns
 ::: {.column}
@@ -118,7 +118,7 @@ Have you done machine learning in R before?
 :::
 :::
 
-## What is {tidymodels}?
+## {tidymodels} 是什么?
 
 ::: columns
 
@@ -142,7 +142,7 @@ There are some core {tidymodels} packages...
 
 :::
 
-## What is machine learning?
+## 机器学习是什么？
 
 ::: columns
 ::: {.column}
@@ -160,7 +160,7 @@ There are some core {tidymodels} packages...
 :::
 :::
 
-## What is machine learning?
+## 机器学习是什么？
 
 ::: columns
 ::: {.column}
@@ -178,7 +178,7 @@ There are some core {tidymodels} packages...
 :::
 :::
 
-## Types of machine learning
+## 机器学习有哪几类？
 
 ::: columns
 
@@ -210,9 +210,9 @@ There are some core {tidymodels} packages...
 
 Other types of machine learning include *semi-supervised learning* and *reinforcement learning*.
 
-# Before we start fitting models... {background-color="#D9DBDB"}
+# 在我们开始拟合模型之前... {background-color="#D9DBDB"}
 
-## Training and testing data
+## 训练、测试数据集
 
 ![](images/TrainTest.png){fig-align="center" fig-alt="Training and testing diagram" width=70%}
 
@@ -236,7 +236,7 @@ We can't always learn every parameter from the data.
 
 :::
 
-## Workflows and recipes
+## 流程和食谱
 
 ::: columns
 
@@ -248,13 +248,13 @@ We can't always learn every parameter from the data.
 
 ::: {.column width="70%"}
 
-**Recipe**
+**食谱*
 
 A series of preprocessing steps performed on data before you fit a model.
 
 <br>
 
-**Workflow**
+**流程**
 
 An object that can combine your pre-processing, modelling, and post-processing steps. E.g. combine a `recipe` with a model.
 
@@ -263,7 +263,7 @@ An object that can combine your pre-processing, modelling, and post-processing s
 
 :::
 
-## Pre-processing in {tidymodels}
+## 用{tidymodels}做预训练
 
 ### Live demo!
 
@@ -309,18 +309,18 @@ countdown::countdown(minutes = 10,
 
 See `exercise_solutions/exercise_solutions_01.R` for full code.
 
-# LASSO regression {background-color="#D9DBDB"}
+# LASSO回归 {background-color="#D9DBDB"}
 
-## Linear and logistic regression models
+## 线性和逻辑回归模型
 
-Let's go back a little bit first...
+首先，让我们先回顾一下...
 
 . . .
 
 ::: columns
 
 ::: {.column}
-**Linear regression**
+**线性回归**
 ```{r}
 #| label: lin-reg
 #| eval: false
@@ -333,7 +333,7 @@ lm(y ~ x, data = model_data)
 :::
 
 ::: {.column .fragment}
-**Logistic regression**
+**逻辑斯蒂回归**
 
 ```{r}
 #| label: log-reg
@@ -348,19 +348,19 @@ glm(y ~ x, family = "binomial", data = model_data)
 
 :::
 
-## Quiz!
+## 测验！
 
-How do you choose which explanatory variables to include?
+在选择要包括哪些解释变量时，您会如何选择？
 
-* Using background knowledge
+* 使用背景知识
 
-* p-values and correlations between variables
+* 使用 p 值和变量之间的相关性
 
-* Stepwise procedures (forward/backward/bi-directional)
+* 逐步程序（前向/后向/双向）
 
-* Something else
+* 其他方式
 
-## LASSO regression
+## LASSO回归
 
 ::: columns
 ::: {.column}
@@ -385,7 +385,8 @@ See also: ridge regression
 :::
 :::
 
-## Hyperparameters for LASSO regression
+## LASSO回归的超参数
+
 
 **$\lambda$ (penalty)** takes a value between 0 and $\infty$.
 
@@ -393,20 +394,20 @@ See also: ridge regression
 
 * Lower value: closer to standard regression models. ($\lambda = 0$ ~ standard regression model)
 
-## Model evaluation
+## 模型评估
 
 ::: columns
 ::: {.column}
 
-**(Binary) Classification Metrics**
+**(二元) 分类指标**
 
-* Accuracy: proportion of the data that are predicted correctly.
+* 精度（Accuracy）：正确预测的数据占总数据的比例。
 
-* ROC AUC: area under the ROC (receiver operating characteristic) curve.
+* ROC AUC：ROC曲线下的面积（接收者操作特征曲线）。
 
-* Kappa: similar to accuracy but normalised by the accuracy expected by chance alone.
+* Kappa：类似于精度，但考虑了仅仅由偶然机会带来的精度。
 
-See [yardstick.tidymodels.org/articles/metric-types.html](https://yardstick.tidymodels.org/articles/metric-types.html).
+参考[yardstick.tidymodels.org/articles/metric-types.html](https://yardstick.tidymodels.org/articles/metric-types.html).
 
 :::
 ::: {.column .fragment .center}
@@ -417,9 +418,9 @@ See [yardstick.tidymodels.org/articles/metric-types.html](https://yardstick.tidy
 :::
 :::
 
-## LASSO logistic regression in {tidymodels}
+## 使用 {tidymodels} 进行 LASSO 逻辑回归
 
-### Live demo!
+### 现场演示！
 
 <br><br>
 
@@ -429,17 +430,17 @@ See `examples/example_02.R` for full code.
 
 :::
 
-## Exercise 2
+## 练习 2
 
-Open `exercises/exercise_02.R` for prompts. You can also use `examples/example_02.R` as a starting point.
+打开 `exercises/exercise_02.R` 获取提示。您也可以使用 `examples/example_02.R` 作为起点。
 
-* Specify the model using `logistic_reg()`.
+* 使用 `logistic_reg()` 指定模型。
 
-* Tune the hyperparameter.
+* 调整超参数。
 
-* Choose the best value and fit the final model.
+* 选择最佳值并拟合最终模型。
 
-* Evaluate the model performance.
+* 评估模型性能。
 
 ```{r}
 #| label: ex-2-timer
@@ -459,11 +460,11 @@ countdown::countdown(minutes = 10,
 
 See `exercise_solutions/exercise_solutions_02.R` for full code.
 
-## Quiz!
+## 测验！
 
-What was the ROC AUC of your LASSO model?
+您的LASSO模型的ROC AUC是多少？
 
-* Less than 70%
+* 小于70%
 
 * 70-80%
 
@@ -471,9 +472,9 @@ What was the ROC AUC of your LASSO model?
 
 * 90-100%
 
-# Random Forests {background-color="#D9DBDB"}
+# 随机森林 {background-color="#D9DBDB"}
 
-## Decision trees
+## 决策树
 
 ::: columns
 ::: {.column}
@@ -488,18 +489,18 @@ A tree-like model of decisions and their possible consequences.
 :::
 :::
 
-## What are Random Forests?
+## 什么是随机森林？
 
 ::: columns
 ::: {.column}
 
-* An ensemble method
+* 一种集成方法
 
-* Combines many decision trees.
+* 结合了许多决策树。
 
-* Can be used for classification or regression problems.
+* 可用于分类或回归问题。
 
-* For classification tasks, the output of the random forest is the class selected by most trees.
+* 对于分类任务，随机森林的输出是被大多数决策树选中的类别。
 
 :::
 ::: {.column}
@@ -511,21 +512,21 @@ A tree-like model of decisions and their possible consequences.
 :::
 :::
 
-## Hyperparameters for random forests
+## 随机森林的超参数
 
-**trees**: number of trees in the ensemble.
-
-<br>
-
-**mtry**: number of predictors that will be randomly sampled at each split when creating the tree models.
+**trees**：集成中树的数量。
 
 <br>
 
-**min_n**: minimum number of data points in a node that are required for the node to be split further.
+**mtry**：在创建树模型时，每次分割时随机抽样的预测变量数量。
 
-## Random Forests in {tidymodels}
+<br>
 
-### Live demo!
+**min_n**：需要将节点进一步分割所需的节点中的最小数据点数。
+
+## 在 {tidymodels} 中的随机森林
+
+### 现场演示！
 
 <br><br>
 
@@ -535,15 +536,15 @@ See `examples/example_03.R` for full code.
 
 :::
 
-## Exercise 3
+## 练习 3
 
-Open `exercises/exercise_03.R` for prompts. You can also use `examples/example_03.R` as a starting point.
+打开 `exercises/exercise_03.R` 获取提示。您也可以使用 `examples/example_03.R` 作为起点。
 
-* Specify a random forest model using `rand_forest()`
+* 使用 `rand_forest()` 指定随机森林模型。
 
-* Tune the hyperparameters using the cross-validation folds.
+* 使用交叉验证折叠调整超参数。
 
-* Fit the final model and evaluate it.
+* 拟合最终模型并评估它。
 
 ```{r}
 #| label: ex-3-timer
@@ -563,14 +564,14 @@ countdown::countdown(minutes = 10,
 
 See `exercise_solutions/exercise_solutions_03.R` for full code.
 
-# Support Vector Machines (SVM) {background-color="#D9DBDB"}
+# 支持向量机（SVM） {background-color="#D9DBDB"}
 
-## What are Support Vector Machines?
+## 什么是支持向量机？
 
 ::: columns
 ::: {.column}
 
-Support Vector Machines (SVMs) draw a decision boundary that best separates two groups.
+支持向量机（SVM）绘制了最佳分离两个组的决策边界。
 
 :::
 ::: {.column}
@@ -579,7 +580,7 @@ Support Vector Machines (SVMs) draw a decision boundary that best separates two 
 :::
 :::
 
-## What are Support Vector Machines?
+## 什么是支持向量机？
 
 ::: columns
 ::: {.column}
@@ -624,25 +625,23 @@ Radial Basis Functions
 
 :::
 
-## Hyperparameters in SVMs
+## SVM中的超参数
 
-**Cost**
+**成本（Cost）**
 
-* Higher value: emphasises fitting the data
+* 较高的值：强调拟合数据
+* 较低的值：优先避免过度拟合
 
-* Lower value: prioritises avoiding overfitting
+**Gamma（决策边界的形状和平滑度）**
 
-**Gamma** (shape and smoothness of decision boundary)
+* 较高的值：更灵活的边界
+* 较低的值：更简单的边界
 
-* Higher value: more flexible boundaries
+根据内核的选择，还可能存在其他超参数。
 
-* Lower value: simpler boundaries
+## 在 {tidymodels} 中的支持向量机
 
-There may be other hyperparameters, depending on the choice of kernel.
-
-## Support Vector Machines in {tidymodels}
-
-### Live demo!
+### 现场演示！
 
 <br><br>
 
@@ -652,17 +651,17 @@ See `examples/example_04.R` for full code.
 
 :::
 
-## Exercise 4
+## 练习 4
 
-Open `exercises/exercise_04.R` for prompts. You can also use `examples/example_04.R` as a starting point.
+打开 `exercises/exercise_04.R` 获取提示。如果您感到自信，也可以使用 `svm_rbf()`（或其他 `svm_*` 函数之一）作为起点。
 
-* Specify a support vector machine using `svm_rbf()` (or one of the other `svm_*` functions if you're feeling confident!)
+* 使用 `svm_rbf()` 指定支持向量机模型（或其他 `svm_*` 函数）。
 
-* Tune the `cost()` hyperparameter using the cross-validation folds.
+* 使用交叉验证折叠调整 `cost()` 超参数。
 
-* Fit the final model and evaluate it.
+* 拟合最终模型并评估它。
 
-* Look at some other evaluation metrics.
+* 查看一些其他评估指标。
 
 ```{r}
 #| label: ex-4-timer
@@ -680,33 +679,33 @@ countdown::countdown(minutes = 10,
 
 . . .
 
-See `exercise_solutions/exercise_solutions_04.R` for full code.
+查看 `exercise_solutions/exercise_solutions_04.R` 获取完整的代码。
 
-## Quiz
+## 测验
 
-Which of the three models performed best on the `exercises` data?
+在 `exercises` 数据上，以下三个模型中哪一个表现最好？
 
 * LASSO
 
-* Random Forest
+* 随机森林
 
 * SVM
 
-# Additional Information {background-color="#D9DBDB"}
+# 附加信息 {background-color="#D9DBDB"}
 
-## Learning more about machine learning
+## 了解更多有关机器学习的信息
 
-There are many machine learning topics and {tidymodels} functions we haven't covered today. As well as learning about the technical details of models and how to write code, it's important to learn about:
+有许多机器学习主题和 {tidymodels} 函数我们今天没有涵盖到。除了学习模型的技术细节和编写代码，还重要学习以下内容：
 
-* Ethics
+* 伦理
 
-* Bias and discrimination
+* 偏见和歧视
 
-* Explainability and validation
+* 可解释性和验证
 
 * ...
 
-## Additional resources
+## 附加资源
 
 ::: columns
 
